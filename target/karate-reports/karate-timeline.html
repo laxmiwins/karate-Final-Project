@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"test[1:7]","start":1701406721918,"end":1701406724828,"title":"test[1:7] 10:28:41.918-10:28:44.828 Login succesfully"},{"id":2,"group":1,"content":"test[2:15]","start":1701406724873,"end":1701406725362,"title":"test[2:15] 10:28:44.873-10:28:45.362 Login unsuccesfully"},{"id":3,"group":1,"content":"test[3:22]","start":1701406725372,"end":1701406725571,"title":"test[3:22] 10:28:45.372-10:28:45.571 Get a single user"},{"id":4,"group":1,"content":"test[4:31]","start":1701406725581,"end":1701406725794,"title":"test[4:31] 10:28:45.581-10:28:45.794 Get a single user not found"},{"id":5,"group":1,"content":"test[5:37]","start":1701406725806,"end":1701406726287,"title":"test[5:37] 10:28:45.806-10:28:46.287 Create a new user"},{"id":6,"group":1,"content":"test[6:46]","start":1701406726294,"end":1701406726773,"title":"test[6:46] 10:28:46.294-10:28:46.773 Update user's job"},{"id":7,"group":1,"content":"test[7:53]","start":1701406726781,"end":1701406727215,"title":"test[7:53] 10:28:46.781-10:28:47.215 Delete a user"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
